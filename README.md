@@ -1,6 +1,10 @@
 # summit
 Test for Summit
 
+for easier reading
+https://docs.google.com/document/d/1q5VyX94wy9BA1lLJEnpkhJUQQARaI32ZRgPezy8uaok/edit?usp=sharing
+
+
 Question 1 Cache
 For the cache question I had to make a few quick classes to make sure I had everything correct.
 These are in the git repo under methods/cache.php and  methods/cache/*
