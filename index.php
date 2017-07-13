@@ -1,4 +1,4 @@
 <?php
-require 'methods/cache.php'; 
+require 'class/cache.php'; 
 Cache::store('memcache')->get('test');
 ?>
