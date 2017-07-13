@@ -37,3 +37,5 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+#results, #process-form{display: none;}
