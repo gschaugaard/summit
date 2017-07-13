@@ -6,23 +6,23 @@ abstract class Cache{
 		$config = array(
 			'types' => array(
 				'filecache' => array(
-					"method_name" => "Filecache",
-					"method_path" => "/cache/filecache.php",
+					"class_name" => "Filecache",
+					"class_path" => "/cache/filecache.php",
 					"cache_config" => array(
 						"file_path" => "/path_to_store_file/"
 					)
 
 				),
 				'memcache' => array(
-					"method_name" => "Memcache",
-					"method_path" => "/cache/memcache.php",
+					"class_name" => "Memcache",
+					"class_path" => "/cache/memcache.php",
 					"cache_config" => array(
 						"file_path" => "/path_to_store_file/"
 					)
 				),
 				'redis' => array(
-					"method_name" => "Redis",
-					"method_path" => "/cache/redis.php",
+					"class_name" => "Redis",
+					"class_path" => "/cache/redis.php",
 					"cache_config" => array(
 						'client' => 'predis',
 					    'default' => array(
@@ -36,11 +36,10 @@ abstract class Cache{
 				) 
 			)
 		);
-		//var_dump($type);
-		//var_dump($config['types'][$type]);
-		require dirname(__FILE__)."/".$config['types'][$type]['method_path'];
-		//var_dump($config['types'][$type]['method_name']); 
-		return new $config['types'][$type]['method_name']($config['types'][$type]['cache_config']);
+		// load the class
+		require dirname(__FILE__)."/".$config['types'][$type]['class_path'];
+		//initiate and return the class
+		return new $config['types'][$type]['class_name']($config['types'][$type]['cache_config']);
 	}
 	abstract function get($key);
 	abstract function put($key, $value);
